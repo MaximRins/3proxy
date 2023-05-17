@@ -24,9 +24,9 @@
 FROM gcc AS buildenv
 COPY . 3proxy
 RUN cd 3proxy &&\
- echo "">> Makefile.Linux &&\
- echo PLUGINS = StringsPlugin TrafficPlugin PCREPlugin TransparentPlugin SSLPlugin>>Makefile.Linux &&\
- echo LIBS = -l:libcrypto.a -l:libssl.a -ldl >>Makefile.Linux &&\
+ #echo "">> Makefile.Linux &&\
+ #echo PLUGINS = StringsPlugin TrafficPlugin PCREPlugin TransparentPlugin SSLPlugin>>Makefile.Linux &&\
+ #echo LIBS = -l:libcrypto.a -l:libssl.a -ldl >>Makefile.Linux &&\
  make -f Makefile.Linux &&\
  strip bin/3proxy &&\
  strip bin/StringsPlugin.ld.so &&\
