@@ -21,12 +21,13 @@
 # plugins are located in /usr/local/3proxy/libexec (/libexec for chroot config).
 
 
-FROM gcc AS buildenv
+#FROM gcc AS buildenv
+FROM gcc:4.9
 COPY . 3proxy
 RUN cd 3proxy &&\
- #echo "">> Makefile.Linux &&\
- #echo PLUGINS = StringsPlugin TrafficPlugin PCREPlugin TransparentPlugin SSLPlugin>>Makefile.Linux &&\
- #echo LIBS = -l:libcrypto.a -l:libssl.a -ldl >>Makefile.Linux &&\
+ echo "">> Makefile.Linux &&\
+ echo PLUGINS = StringsPlugin TrafficPlugin PCREPlugin TransparentPlugin SSLPlugin>>Makefile.Linux &&\
+ echo LIBS = -l:libcrypto.a -l:libssl.a -ldl >>Makefile.Linux &&\
  make -f Makefile.Linux &&\
  strip bin/3proxy &&\
  strip bin/StringsPlugin.ld.so &&\
