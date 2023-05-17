@@ -22,7 +22,7 @@
 
 
 #FROM gcc AS buildenv
-FROM gcc:13.1.0
+FROM busybox:1.34.0-glibc
 COPY . 3proxy
 RUN cd 3proxy &&\
  echo "">> Makefile.Linux &&\
