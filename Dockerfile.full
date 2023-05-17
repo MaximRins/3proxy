@@ -22,7 +22,7 @@
 
 
 #FROM gcc AS buildenv
-FROM gcc:4.9
+FROM gcc:latest
 COPY . 3proxy
 RUN cd 3proxy &&\
  echo "">> Makefile.Linux &&\
